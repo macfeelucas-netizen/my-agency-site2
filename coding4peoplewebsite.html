@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Web Studio | High-Performance Websites for Small Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#dc2626', // red-600
+                        primaryHover: '#b91c1c', // red-700
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <i class="fas fa-bolt text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-800 dark:text-white uppercase">Elevate<span class="text-primary">Web</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium text-slate-600 dark:text-slate-300">
+                <a href="#services" class="hover:text-primary transition">Services</a>
+                <a href="#audit" class="hover:text-primary transition">Free Audit</a>
+                <a href="#results" class="hover:text-primary transition">Why Us</a>
+                <a href="#pricing" class="hover:text-primary transition">Pricing</a>
+                
+                <!-- Dark Mode Toggle -->
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary transition">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <a href="#contact" class="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primaryHover transition shadow-lg shadow-red-200 dark:shadow-none">
+                Get Started
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block py-1 px-3 rounded-full bg-red-100 dark:bg-red-900/30 text-primary text-sm font-bold mb-6 uppercase tracking-wider">
+                    Web Design & Optimization
+                </span>
+                <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6 dark:text-white">
+                    Turn Your Website into a <span class="gradient-text">Sales Machine.</span>
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-xl">
+                    We help local businesses build high-speed websites or transform outdated ones into lead-generating assets. Stop losing customers to better-looking competition.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#audit" class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primaryHover transition text-center shadow-xl shadow-red-100 dark:shadow-none">
+                        Get a Free Website Audit
+                    </a>
+                    <a href="#pricing" class="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 px-8 py-4 rounded-xl font-bold text-lg hover:border-primary hover:text-primary transition text-center">
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+                <div class="relative bg-white dark:bg-slate-900 p-4 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="Web Development Portfolio">
+                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-50 dark:border-slate-700 hidden md:block">
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Total Client Growth</p>
+                        <p class="text-3xl font-black text-primary">+65%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-slate-50 dark:bg-slate-900/50 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">How We Grow Your Business</h2>
+            <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Modern web solutions designed for small business budgets and big results.</p>
+        </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-primary rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-rocket text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 dark:text-white">Custom Builds</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">Lightning-fast sites built from the ground up to rank on Google and convert visitors into loyal customers.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-primary rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-sync text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 dark:text-white">Site Refresh</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">Transform your existing outdated site into a modern, mobile-friendly experience in just a few days.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-primary rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-chart-pie text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 dark:text-white">SEO Strategy</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">Local SEO optimization to make sure your neighbors find you before they find your competitors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Section -->
+    <section id="audit" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto bg-primary rounded-[2.5rem] p-8 md:p-16 text-center text-white shadow-2xl shadow-red-200 dark:shadow-none">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Free 5-Minute Video Audit</h2>
+            <p class="text-red-100 text-lg mb-10 max-w-2xl mx-auto">
+                No sales calls. I'll record my screen and show you 3 things that are hurting your sales right now.
+            </p>
+            
+            <form action="https://formspree.io/f/xojnwgbv" method="POST" target="_blank" class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                <input type="url" name="audit_website_url" placeholder="Your Website URL" required class="flex-1 px-6 py-4 rounded-xl text-slate-900 font-medium focus:outline-none">
+                <button type="submit" class="bg-slate-900 dark:bg-slate-800 hover:bg-black text-white px-8 py-4 rounded-xl font-bold transition">
+                    Audit My Site
+                </button>
+            </form>
+            <p class="mt-4 text-red-200 text-xs italic">By clicking, your request will open in a new tab for security.</p>
+        </div>
+    </section>
+
+    <!-- Results Bragging & Reviews -->
+    <section id="results" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-8 italic dark:text-white">The Elevate Advantage</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg dark:text-white">Instant Loading</h4>
+                            <p class="text-slate-600 dark:text-slate-400">Our sites load in under 1.5 seconds, reducing bounce rates and keeping customers engaged.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg dark:text-white">Mobile-First Design</h4>
+                            <p class="text-slate-600 dark:text-slate-400">80% of local searches happen on phones. We ensure your site looks perfect on every screen size.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg dark:text-white">+45% Increase in Leads</h4>
+                            <p class="text-slate-600 dark:text-slate-400">On average, our clients see nearly double the inquiries after switching to our optimized builds.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg dark:text-white">Secure & Reliable</h4>
+                            <p class="text-slate-600 dark:text-slate-400">SSL certificates and security monitoring included in every plan to keep you and your customers safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-red-50 dark:bg-slate-900 p-10 rounded-[2.5rem] flex flex-col justify-center">
+                <h2 class="text-3xl font-bold mb-8 dark:text-white text-center md:text-left">What Our Clients Say</h2>
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
+                        <i class="fas fa-quote-left absolute top-4 left-4 text-red-200 dark:text-red-900/50 text-4xl -z-10"></i>
+                        <p class="mb-4">"Our online orders increased massively in the first month. The mobile site is a game changer for our Brockton customers. Finally, a web designer who actually listens!"</p>
+                        <div class="font-bold text-slate-900 dark:text-white">— Cape Cod Cafe Pizza</div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm italic text-slate-700 dark:text-slate-300 relative">
+                        <i class="fas fa-quote-left absolute top-4 left-4 text-red-200 dark:text-red-900/50 text-4xl -z-10"></i>
+                        <p class="mb-4">"We used to get zero leads from our site. Now we get 4-5 inquiries every single week. Working with Elevate was the best investment for our business."</p>
+                        <div class="font-bold text-slate-900 dark:text-white">— Ridge Peak Renovations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-slate-50 dark:bg-slate-900/50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Pricing Estimates</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Our pricing is flexible to match your business size and needs. We also offer <strong>interest-free</strong> financing options to help you grow without the upfront stress.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tier 1 -->
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 class="font-bold text-slate-400 text-sm tracking-widest mb-2 uppercase">Performance Boost</h3>
+                    <div class="text-4xl font-extrabold mb-4 dark:text-white">$200</div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-8">Best for improving and modernizing your existing website.</p>
+                    <ul class="space-y-4 mb-8 text-sm dark:text-slate-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Performance Audit</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Image Compression</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> SEO Core Setup</li>
+                    </ul>
+                    <a href="#contact" class="block text-center border-2 border-slate-200 dark:border-slate-700 py-3 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white">Get Estimate</a>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border-2 border-primary shadow-xl relative scale-105 z-10">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase">Most Popular</span>
+                    <h3 class="font-bold text-primary text-sm tracking-widest mb-2 uppercase">Premium Build</h3>
+                    <div class="text-4xl font-extrabold mb-4 dark:text-white">$375</div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-8">A custom-built, lead-generating site from the ground up.</p>
+                    <ul class="space-y-4 mb-8 text-sm dark:text-slate-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 5-Page Custom Site</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Professional Copywriting</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Mobile-First Design</li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-primary text-white py-3 rounded-xl font-bold hover:bg-primaryHover transition">Get Started</a>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 class="font-bold text-slate-400 text-sm tracking-widest mb-2 uppercase">Support Squad</h3>
+                    <div class="text-4xl font-extrabold mb-4 dark:text-white">$175</div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-8">Monthly maintenance and unlimited updates for your site.</p>
+                    <ul class="space-y-4 mb-8 text-sm dark:text-slate-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Ongoing Maintenance</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Security Monitoring</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Unlimited Text Changes</li>
+                    </ul>
+                    <a href="#contact" class="block text-center border-2 border-slate-200 dark:border-slate-700 py-3 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white">Add to Order</a>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center bg-red-50 dark:bg-slate-900 p-6 rounded-2xl max-w-3xl mx-auto border border-red-100 dark:border-slate-800">
+                <p class="text-sm text-primary dark:text-red-400 font-medium leading-relaxed">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <strong>Important:</strong> These prices are estimates and may be adjusted based on the size and complexity of your business. 
+                    We believe high-quality web design should be accessible to everyone—ask us about our <strong>0% interest financing plans</strong> to spread the cost over time!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Integrated with Formspree -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto bg-white dark:bg-slate-900 p-10 md:p-16 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
+            <h2 class="text-3xl font-bold mb-8 text-center dark:text-white">Let's Build Something Great</h2>
+            
+            <form action="https://formspree.io/f/xojnwgbv" method="POST" target="_blank" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase">Your Name</label>
+                        <input type="text" name="name" placeholder="Alex" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-none outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase">Your Business</label>
+                        <input type="text" name="business" placeholder="Coffee Shop" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-none outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase">Email Address</label>
+                    <input type="email" name="email" placeholder="alex@business.com" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-none outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase">Service Interest</label>
+                    <select name="service_type" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-none outline-none focus:ring-2 focus:ring-primary">
+                        <option value="boost">Performance Boost</option>
+                        <option value="premium">Premium Build</option>
+                        <option value="support">Support Squad</option>
+                    </select>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase">Message</label>
+                    <textarea name="message" rows="4" placeholder="Tell me about your site goals and if you're interested in our 0% interest financing..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-none outline-none focus:ring-2 focus:ring-primary"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primaryHover transition shadow-lg shadow-red-100 dark:shadow-none">
+                    Get My Free Estimate
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 dark:bg-black text-slate-500 py-12 px-6 text-center border-t border-slate-800">
+        <div class="mb-6 flex justify-center items-center space-x-2">
+            <div class="w-6 h-6 bg-primary rounded flex items-center justify-center">
+                <i class="fas fa-bolt text-white text-xs"></i>
+            </div>
+            <span class="font-bold text-white uppercase tracking-tighter">ElevateWeb</span>
+        </div>
+        <p class="text-xs mb-6">Built to help local businesses thrive in a digital world.</p>
+        <div class="flex justify-center space-x-6">
+            <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('reveal');
+            observer.observe(section);
+        });
+
+        // Dark Mode Toggle Logic
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Apply saved theme on load (Default is light/white)
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+        }
+    </script>
+</body>
+</html>
